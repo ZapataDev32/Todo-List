@@ -1,0 +1,176 @@
+// Define color palette
+$color-light-purple: #e4d7f5;
+$color-medium-purple: #b298dc;
+$color-dark-purple: #9170b8;
+$color-white: #ffffff;
+$color-gray: #cfcfcf;
+
+// Basic styling
+body {
+  font-family: "Arial", sans-serif;
+  background-color: $color-light-purple;
+  color: $color-dark-purple;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: $color-dark-purple;
+}
+
+// TodoList styles
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Ensure everything is centered
+  background-color: $color-medium-purple;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    border: 2px solid $color-dark-purple;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// TodoItem styles
+.todo-item {
+  width: 100%;
+  background-color: $color-white;
+  color: $color-dark-purple;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span,
+  input {
+    font-size: 1.25rem;
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
+
+  .button {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background-color: $color-dark-purple;
+    color: $color-white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($color-dark-purple, 10%);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px lighten($color-dark-purple, 20%);
+    }
+  }
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px lighten($color-dark-purple, 20%);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px lighten($color-dark-purple, 20%);
+}
+
+// Media queries for responsiveness
+@media (max-width: 600px) {
+  .todo-list {
+    padding: 20px;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+
+    .todo-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px; // Gap between text and buttons in column layout
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 1rem;
+  }
+
+  span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input[type="text"] {
+    padding: 6px;
+    font-size: 0.875rem;
+  }
+
+  .todo-item {
+    padding: 8px;
+
+    .todo-content {
+      span {
+        font-size: 0.875rem;
+      }
+
+      button {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
