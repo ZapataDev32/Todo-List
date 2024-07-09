@@ -126,17 +126,20 @@ button:focus {
       flex-direction: column;
       align-items: flex-start;
       gap: 10px; // Gap between text and buttons in column layout
+      width: 100%; // Ensure full width
     }
 
     button {
-      width: 100%;
+      width: 100%; // Full width buttons
       padding: 10px;
     }
 
     .buttons {
-      width: 100%;
+      width: 100%; // Full width for button container
       display: flex;
       justify-content: space-between;
+      flex-direction: column; // Stack buttons vertically
+      gap: 10px; // Space between stacked buttons
     }
   }
 
